@@ -23,7 +23,7 @@ gem 'ant_blockchain'
 ### 实例化客户端
 
 ```ruby
-    client = AntBlockChainClient.new()
+    client = AntBlockChain::Client.new()
     client.tenant_id = "你的tenant_id"
     client.access_id = "你的access_id"
     client.access_key = "你的access_key"
@@ -36,7 +36,7 @@ gem 'ant_blockchain'
 
 
 ```ruby
-    client = AntBlockChainClient.new(
+    client = AntBlockChain::Client.new(
         tenant_id: "你的tenant_id",
         access_id: "你的access_id",
         access_key: "你的access_key",
@@ -85,13 +85,15 @@ gem 'ant_blockchain'
 ### 查询区块头
 
 ```ruby
-    client.query_blockheader("1")
+    block_number = 1
+    client.query_blockheader(block_number)
 ```
 
 ### 查询区块链体
 
 ```ruby
-    client.query_blockbody("1")
+    block_number = 1
+    client.query_blockbody(block_number)
 ```
 
 ### 查询最新区块高度

@@ -7,7 +7,7 @@ module AntBlockchain
   class AccessError < Error; end
   class ShakeHandError < Error; end
   
-  class AntBlockchainClient
+  class Client
     attr_accessor :tenant_id, :bizid, :access_id, :access_key, :account, :mykms_key_id
     attr_reader :token, :root_url, :token_expires_at
 
