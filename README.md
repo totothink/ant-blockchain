@@ -23,7 +23,7 @@ gem 'ant_blockchain'
 ### 实例化客户端
 
 ```ruby
-    client = AntBlockChain::Client.new()
+    client = AntBlockchain::Client.new()
     client.tenant_id = "你的tenant_id"
     client.access_id = "你的access_id"
     client.access_key = "你的access_key"
@@ -36,7 +36,7 @@ gem 'ant_blockchain'
 
 
 ```ruby
-    client = AntBlockChain::Client.new(
+    client = AntBlockchain::Client.new(
         tenant_id: "你的tenant_id",
         access_id: "你的access_id",
         access_key: "你的access_key",
