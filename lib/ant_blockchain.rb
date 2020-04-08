@@ -16,13 +16,14 @@ module AntBlockchain
     TRANSACTION_PATH = '/api/contract/chainCallForBiz'
     QUERY_PATH = '/api/contract/chainCall'
 
-    def initialize(tenant_id: nil, bizid: nil, access_id: nil, access_key: nil, account: nil, root_url: nil)
+    def initialize(tenant_id: nil, bizid: nil, access_id: nil, access_key: nil, account: nil, root_url: nil, mykms_key_id: nil)
       @tenant_id = tenant_id
       @bizid = bizid || BIZID
       @access_id = access_id
       @access_key = access_key
       @account = account
       @root_url = root_url || ROOT_URL
+      @mykms_key_id = mykms_key_id
     end
 
     def shakehand(force = false)
