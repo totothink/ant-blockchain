@@ -165,7 +165,7 @@ module AntBlockchain
     end
 
     def gen_order_id(prefix: 'order_')
-      time = Time.now.to_i.to_s + '000'
+      time = Time.now.to_f.to_s
       order_id = prefix + time
     end
 
