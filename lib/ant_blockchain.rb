@@ -1,6 +1,7 @@
 require "ant_blockchain/version"
 require "openssl"
 require "json"
+require "base64"
 
 module AntBlockchain
   class Error < StandardError; end
@@ -84,7 +85,7 @@ module AntBlockchain
         accessId: access_id,
         token: token,
         gas: gas,
-        tenantId: tenant_id
+        tenantid: tenant_id
       }
       _request(TRANSACTION_PATH, body)
     end
@@ -158,6 +159,18 @@ module AntBlockchain
         token: self.token
        }
        _request(QUERY_PATH, body)           
+    end
+
+    def parse_params(output, type, convert: true)
+      output = Base64.decode64(output).unpack("H*") if convert
+      content = output
+      body = { 
+        vmTypeEnum: 'EVM',
+        content: content,
+        abi: "[\"#{type}\"]"
+      }
+      puts body
+      _request(QUERY_PATH, body)
     end
 
     def token_expired?
