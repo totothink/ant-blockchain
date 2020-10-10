@@ -161,6 +161,23 @@ module AntBlockchain
        _request(QUERY_PATH, body)           
     end
 
+    def create_account(order_id: gen_order_id, new_account:, new_kms_id:)
+      shakehand()
+      body = {
+        orderId: order_id,
+        bizid: bizid,
+        method: 'TENANTCREATEACCUNT',
+        account: account,
+        mykmsKeyId: self.mykms_key_id,
+        newAccountId: new_account,
+        newAccountKmsId: new_kms_id,
+        accessId: access_id,
+        token: self.token,
+        tenantid: tenant_id
+       }
+       _request(TRANSACTION_PATH, body)
+    end
+
     def parse_params(output, type, convert: true)
       output = Base64.decode64(output).unpack("H*") if convert
       content = output
